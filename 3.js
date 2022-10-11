@@ -102,7 +102,7 @@
 
 //Traversing The  DOM//
 
-let itemList = document.querySelector('#items');
+//let itemList = document.querySelector('#items');
 //parentNode
 // console.log(itemList.parentNode);
 // itemList.parentNode.style.backgroundColor='grey';
@@ -154,30 +154,63 @@ let itemList = document.querySelector('#items');
 // createElement
 //create div 
 
-let newDiv = document.createElement('div');
+//let newDiv = document.createElement('div');
 //Add Class
-newDiv.className='hello';
+//newDiv.className='hello';
 //Add id 
-newDiv.id = 'hello1';
+//newDiv.id = 'hello1';
 //Add attr
-newDiv.setAttribute('title', 'Hello Div');
+//newDiv.setAttribute('title', 'Hello Div');
 //create text node
-let newDivText = document.createTextNode('HEllo');
+//let newDivText = document.createTextNode('HEllo');
 //Add text to div 
-newDiv.appendChild(newDivText);
-let container = document.querySelector('header .container');
-let h1 = document.querySelector('header h1');
-console.log(newDiv);
-container.insertBefore(newDiv , h1);
+// newDiv.appendChild(newDivText);
+// let container = document.querySelector('header .container');
+// let h1 = document.querySelector('header h1');
+// console.log(newDiv);
+// container.insertBefore(newDiv , h1);
 
-let newLi = document.createElement('li');
-newLi.className = 'list-group-item 0';
-let newLitext = document.createTextNode('HEllo');
-newLi.appendChild(newLitext);
-let list = document.querySelector('ul');
-let li = document.querySelector('ul li');
-list.insertBefore(newLi,li);
+// let newLi = document.createElement('li');
+// newLi.className = 'list-group-item 0';
+// let newLitext = document.createTextNode('HEllo');
+// newLi.appendChild(newLitext);
+// let list = document.querySelector('ul');
+// let li = document.querySelector('ul li');
+// list.insertBefore(newLi,li);
 
+let form = document.getElementById('addForm');
+let itemList = document.getElementById('item');
+
+
+// Form submit event
+form.addEventListener('submit' ,addItem);
+
+//add item 
+function addItem(e){
+    e.preventDefault();
+
+// Get input value
+let newItem = document.getElementById('item').value;
+
+
+// create  new li Element
+let li = document.createElement('li');
+//Add Class name 
+li.className = 'list-group-item';
+
+//Append text 
+li.appendChild(document.createTextNode(newItem));
+
+// create delete  button elemnet 
+let deleteBtn = document.createElement('button');
+
+deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+
+deleteBtn.appendChild(document.createTextNode('x'));
+
+itemList.appendChild(li);
+
+}
 
 
 
